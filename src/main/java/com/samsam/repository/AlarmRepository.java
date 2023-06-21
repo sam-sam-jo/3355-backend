@@ -9,7 +9,7 @@ import com.samsam.vo.AlarmVO;
 
 public interface AlarmRepository extends CrudRepository<AlarmVO, Integer> {
 	
-	@Query(value = "select * from alarms where user_no = ?1 and alarm_status = ?2", nativeQuery = true)
+	@Query(value = "select * from alarms where user_no = ?1 and alarm_status = ?2 ORDER BY alarm_date DESC", nativeQuery = true)
 	public List<AlarmVO> findUnreadAlarms(Integer user, Integer status);
 	
 	
